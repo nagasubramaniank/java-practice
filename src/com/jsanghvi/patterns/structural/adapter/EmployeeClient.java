@@ -11,10 +11,10 @@ class EmployeeClient {
         employees.add(employeeDb);
 
         EmployeeLdap employeeLdap = new EmployeeLdap("Jatin Sanghvi", 147, "jsanghvi@company.com");
-        employees.add(new EmployeeAdapter(employeeLdap));
+        employees.add(new EmployeeLdapAdapter(employeeLdap));
 
         EmployeeCsv employeeCsv = new EmployeeCsv(147, "147, Jatin, Sanghvi, jsanghvi@company.com");
-        employees.add(new EmployeeAdapter(employeeCsv));
+        employees.add(new EmployeeCsvAdapter(employeeCsv));
     }
 
     public List<Employee> getEmployees() {

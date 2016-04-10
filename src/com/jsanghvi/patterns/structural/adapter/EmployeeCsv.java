@@ -1,8 +1,8 @@
 package com.jsanghvi.patterns.structural.adapter;
 
 class EmployeeCsv {
-    private final int id;
-    private final String value;
+    private int id;
+    private String value;
 
     public EmployeeCsv(int id, String value) {
         this.id = id;
@@ -13,7 +13,15 @@ class EmployeeCsv {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getValue() {
         return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

@@ -1,9 +1,9 @@
 package com.jsanghvi.patterns.structural.adapter;
 
 class EmployeeLdap {
-    private final String fullName;
-    private final int id;
-    private final String emailAddress;
+    private String fullName;
+    private int id;
+    private String emailAddress;
 
     public EmployeeLdap(String fullName, int id, String emailAddress) {
         this.fullName = fullName;
@@ -15,11 +15,23 @@ class EmployeeLdap {
         return fullName;
     }
 
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getEmailAddress() {
         return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 }

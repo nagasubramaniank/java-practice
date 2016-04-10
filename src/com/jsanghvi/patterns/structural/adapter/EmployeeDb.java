@@ -1,10 +1,10 @@
 package com.jsanghvi.patterns.structural.adapter;
 
 class EmployeeDb implements Employee {
-    private final String id;
-    private final String firstName;
-    private final String lastName;
-    private final String email;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     public EmployeeDb(String id, String firstName, String lastName, String email) {
         this.id = id;
@@ -19,8 +19,18 @@ class EmployeeDb implements Employee {
     }
 
     @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
     public String getFirstName() {
         return firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Override
@@ -29,7 +39,17 @@ class EmployeeDb implements Employee {
     }
 
     @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
