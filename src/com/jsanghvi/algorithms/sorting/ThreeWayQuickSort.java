@@ -53,8 +53,8 @@ public class ThreeWayQuickSort<Item extends Comparable<? super Item>> {
         sort(list, right + 1, endIndex);
     }
 
-    private void swap(Comparable[] list, int index1, int index2) {
-        Comparable t = list[index1];
+    private void swap(Item[] list, int index1, int index2) {
+        Item t = list[index1];
         list[index1] = list[index2];
         list[index2] = t;
     }
