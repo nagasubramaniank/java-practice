@@ -33,22 +33,24 @@ class IntegerKnapsack {
         setSizeTable[0][0] = 0;
 
         // It is not possible to create a Knapsack of non-zero size with empty set.
-        for (int size = 1; size <= maxKnapsackSize; size++) {
-            setSizeTable[0][size] = -1;
+        for (int knapsackSize = 1; knapsackSize <= maxKnapsackSize; knapsackSize++) {
+            setSizeTable[0][knapsackSize] = -1;
         }
 
-        for (int itemIndex = 0; itemIndex < items.length; itemIndex++) {
-            for (int size = 0; size <= maxKnapsackSize; size++) {
+        for (int subsetSize = 1; subsetSize <= items.length; subsetSize++) {
+            int itemIndex = subsetSize - 1;
 
-                setSizeTable[itemIndex + 1][size] = setSizeTable[itemIndex][size];
+            for (int knapsackSize = 0; knapsackSize <= maxKnapsackSize; knapsackSize++) {
 
-                if (size >= items[itemIndex].size) {
-                    int sizeWithoutItem = size - items[itemIndex].size;
-                    int valueWithoutItem = setSizeTable[itemIndex][sizeWithoutItem];
+                setSizeTable[subsetSize][knapsackSize] = setSizeTable[subsetSize - 1][knapsackSize];
 
-                    if (setSizeTable[itemIndex + 1][size] < valueWithoutItem + items[itemIndex].value) {
-                        setSizeTable[itemIndex + 1][size] = valueWithoutItem + items[itemIndex].value;
-                        isItemIncluded[itemIndex + 1][size] = true;
+                if (knapsackSize >= items[itemIndex].size) {
+                    int sizeWithoutItem = knapsackSize - items[itemIndex].size;
+                    int valueWithoutItem = setSizeTable[subsetSize - 1][sizeWithoutItem];
+
+                    if (setSizeTable[subsetSize][knapsackSize] < valueWithoutItem + items[itemIndex].value) {
+                        setSizeTable[subsetSize][knapsackSize] = valueWithoutItem + items[itemIndex].value;
+                        isItemIncluded[subsetSize][knapsackSize] = true;
                     }
                 }
             }
