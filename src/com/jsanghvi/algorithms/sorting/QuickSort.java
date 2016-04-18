@@ -42,10 +42,14 @@ public class QuickSort<Item extends Comparable<? super Item>> {
         // All values from startIndex..left-1  are less than or equal to pivot.
         // All values from right+1..endIndex are greater than pivot.
 
-        while (left <= right) {
-            if (list[left].compareTo(pivot) <= 0) left++;
-            else if (list[right].compareTo(pivot) > 0) right--;
-            else swap(list, left++, right--);
+        while (true) {
+            while (list[left].compareTo(pivot) <= 0) left++;
+            while (list[right].compareTo(pivot) > 0) right--;
+
+            if (left > right)
+                break;
+
+            swap(list, left++, right--);
         }
 
         swap(list, startIndex, right);
