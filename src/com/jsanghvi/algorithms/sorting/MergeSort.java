@@ -1,43 +1,38 @@
 package com.jsanghvi.algorithms.sorting;
 
-public class MergeSort<Item extends Comparable<Item>> {
+public class MergeSort<Item extends Comparable<Item>> extends AbstractSort<Item> {
     public static void main(String[] args) {
-        MergeSort<Integer> mergeSort = new MergeSort<>();
-        Integer[] list = new Integer[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
 
-        System.out.print("Before: ");
-        for (Integer item : list) {
-            System.out.print(item + " ");
-        }
-        System.out.println();
+        final MergeSort<Integer> mergeSortInteger = new MergeSort<>();
+        mergeSortInteger.test(new Integer[]{});
+        mergeSortInteger.test(new Integer[]{0});
+        mergeSortInteger.test(new Integer[]{0, 1, 2, 3});
+        mergeSortInteger.test(new Integer[]{3, 2, 1, 0});
 
-        mergeSort.sort(list);
-
-        System.out.print("After: ");
-        for (Integer item : list) {
-            System.out.print(item + " ");
-        }
-        System.out.println();
+        final MergeSort<String> mergeSortString = new MergeSort<>();
+        mergeSortString.test(new String[]{"to", "be", "or", "not", "to", "be"});
     }
 
-    private void sort(Item[] list) {
+    @Override
+    protected void sort(final Item[] list) {
         @SuppressWarnings("unchecked")
-        Item[] auxList = (Item[]) new Comparable[list.length];
+        final Item[] auxList = (Item[]) new Comparable[list.length];
         sort(list, auxList, 0, list.length - 1);
     }
 
-    private void sort(Item[] list, Item[] auxList, int startIndex, int endIndex) {
+    private void sort(final Item[] list, final Item[] auxList, final int startIndex, final int endIndex) {
         if (startIndex >= endIndex) {
             return;
         }
 
-        int midIndex = (startIndex + endIndex) / 2;
+        final int midIndex = (startIndex + endIndex) / 2;
         sort(list, auxList, startIndex, midIndex);
         sort(list, auxList, midIndex + 1, endIndex);
         merge(list, auxList, startIndex, midIndex, endIndex);
     }
 
-    private void merge(Item[] list, Item[] auxList, int startIndex, int midIndex, int endIndex) {
+    private void merge(final Item[] list, final Item[] auxList, final int startIndex, final int midIndex,
+                       final int endIndex) {
         System.arraycopy(list, startIndex, auxList, startIndex, endIndex - startIndex + 1);
 
         for (int i = startIndex, j = midIndex + 1, k = startIndex; k <= endIndex; k++) {
