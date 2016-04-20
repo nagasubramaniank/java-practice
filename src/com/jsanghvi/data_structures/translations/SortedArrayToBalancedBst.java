@@ -1,8 +1,8 @@
 // Create a balanced binary search tree from a sorted array.
 
-package com.jsanghvi.data_structures.binary_search_tree;
+package com.jsanghvi.data_structures.translations;
 
-public class BstFromSortedArray {
+public class SortedArrayToBalancedBst {
     public static void main(String[] args) {
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
         BstNode rootNode = createBst(array);
@@ -27,7 +27,7 @@ public class BstFromSortedArray {
         return new BstNode(array[mid], createBst(array, left, mid - 1), createBst(array, mid + 1, right));
     }
 
-    public static void printInorder(final BstNode node) {
+    private static void printInorder(final BstNode node) {
         if (node != null) {
             printInorder(node.left);
             System.out.print(node.value + " ");
@@ -35,7 +35,7 @@ public class BstFromSortedArray {
         }
     }
 
-    public static boolean isBalancedBst(final BstNode node) {
+    private static boolean isBalancedBst(final BstNode node) {
         return getBalanceInformation(node).isBalanced;
     }
 
@@ -58,9 +58,9 @@ public class BstFromSortedArray {
     }
 
     private static class BalanceInformation {
-        final boolean isBalanced;
-        final int maxHeight;
-        final int minHeight;
+        private final boolean isBalanced;
+        private final int maxHeight;
+        private final int minHeight;
 
         public BalanceInformation(final boolean isBalanced, final int minHeight, final int maxHeight) {
             this.isBalanced = isBalanced;
@@ -74,8 +74,8 @@ public class BstFromSortedArray {
     }
 
     private static class BstNode {
-        final int value;
-        final BstNode left, right;
+        private final int value;
+        private final BstNode left, right;
 
         public BstNode(final int value, final BstNode left, final BstNode right) {
             this.value = value;
