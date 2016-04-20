@@ -1,52 +1,45 @@
 package com.jsanghvi.algorithms.sorting;
 
-public class QuickSort<Item extends Comparable<? super Item>> {
-    public static void main(String[] args) {
-        QuickSort<Integer> quickSort = new QuickSort<>();
-        Integer[] list = new Integer[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+public class QuickSort<Item extends Comparable<Item>> extends AbstractSort<Item> {
+    public static void main(final String[] args) {
+        final QuickSort<Integer> quickSortInteger = new QuickSort<>();
+        quickSortInteger.test(new Integer[]{});
+        quickSortInteger.test(new Integer[]{0});
+        quickSortInteger.test(new Integer[]{0, 1, 2, 3});
+        quickSortInteger.test(new Integer[]{3, 2, 1, 0});
 
-        System.out.print("Before: ");
-        for (Integer item : list) {
-            System.out.print(item + " ");
-        }
-        System.out.println();
-
-        quickSort.sort(list);
-
-        System.out.print("After: ");
-        for (Integer item : list) {
-            System.out.print(item + " ");
-        }
-        System.out.println();
+        final QuickSort<String> quickSortString = new QuickSort<>();
+        quickSortString.test(new String[]{"to", "be", "or", "not", "to", "be"});
     }
 
-    private void sort(Item[] list) {
+    @Override
+    protected void sort(final Item[] list) {
         sort(list, 0, list.length - 1);
     }
 
-    private void sort(Item[] list, int startIndex, int endIndex) {
+    private void sort(final Item[] list, final int startIndex, final int endIndex) {
         if (startIndex >= endIndex) {
             return;
         }
 
-        int index = partition(list, startIndex, endIndex);
+        final int index = partition(list, startIndex, endIndex);
         sort(list, startIndex, index - 1);
         sort(list, index + 1, endIndex);
     }
 
-    private int partition(Item[] list, int startIndex, int endIndex) {
+    private int partition(final Item[] list, final int startIndex, final int endIndex) {
         int left = startIndex + 1, right = endIndex;
-        Item pivot = list[startIndex];
+        final Item pivot = list[startIndex];
 
         // Invariance within 'while' loop:
         // All values from startIndex..left-1  are less than or equal to pivot.
         // All values from right+1..endIndex are greater than pivot.
 
         while (true) {
-            while (list[left].compareTo(pivot) <= 0) left++;
+            while (list[left].compareTo(pivot) <= 0 && left < right) left++;
             while (list[right].compareTo(pivot) > 0) right--;
 
-            if (left > right)
+            if (left >= right)
                 break;
 
             swap(list, left++, right--);
@@ -54,11 +47,5 @@ public class QuickSort<Item extends Comparable<? super Item>> {
 
         swap(list, startIndex, right);
         return right;
-    }
-
-    private void swap(Item[] list, int index1, int index2) {
-        Item t = list[index1];
-        list[index1] = list[index2];
-        list[index2] = t;
     }
 }
