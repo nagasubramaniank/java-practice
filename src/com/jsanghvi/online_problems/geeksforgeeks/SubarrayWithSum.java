@@ -40,15 +40,15 @@ package com.jsanghvi.online_problems.geeksforgeeks;
 import java.util.Scanner;
 
 public class SubarrayWithSum {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int T = in.nextInt();
+    public static void main(final String[] args) {
+        final Scanner in = new Scanner(System.in);
+        final int T = in.nextInt();
 
         for (int test = 0; test < T; test++) {
-            int N = in.nextInt();
-            int S = in.nextInt();
+            final int N = in.nextInt();
+            final int S = in.nextInt();
 
-            int[] C = new int[N];
+            final int[] C = new int[N];
             for (int i = 0; i < N; i++) {
                 C[i] = in.nextInt();
             }
@@ -57,7 +57,7 @@ public class SubarrayWithSum {
         }
     }
 
-    private static void printSubarrayIndices(int[] array, int sum) {
+    private static void printSubarrayIndices(final int[] array, final int sum) {
         if (sum > 0) {
             for (int startIndex = 0, endIndex = 0, currentSum = array[startIndex]; ; ) {
                 if (currentSum < sum) {
