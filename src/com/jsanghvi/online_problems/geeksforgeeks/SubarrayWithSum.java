@@ -1,4 +1,4 @@
-// Problem ID: 590.
+// Problem ID: 590. Subarray with given sum.
 //
 // Given an unsorted array of non-negative integers, find a continuous sub-array which adds to a given number.
 //
