@@ -38,7 +38,7 @@ package com.jsanghvi.online_problems.geeksforgeeks;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SortArrayByFrequency {
+public class P0493_SortArrayByFrequency {
     public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();

@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class SimpleFraction {
+public class P0514_SimpleFraction {
     public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();

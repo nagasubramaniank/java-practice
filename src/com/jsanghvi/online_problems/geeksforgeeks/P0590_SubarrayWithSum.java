@@ -39,7 +39,7 @@ package com.jsanghvi.online_problems.geeksforgeeks;
 
 import java.util.Scanner;
 
-public class SubarrayWithSum {
+public class P0590_SubarrayWithSum {
     public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();
