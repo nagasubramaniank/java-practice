@@ -46,12 +46,12 @@ import java.util.Scanner;
 
 public class P0173_HeadToTail {
     public static void main(final String[] args) {
-        Scanner in = new Scanner(System.in);
-        int T = in.nextInt();
+        final Scanner in = new Scanner(System.in);
+        final int T = in.nextInt();
 
         for (int test = 0; test < T; test++) {
-            int N = in.nextInt();
-            String[] words = new String[N];
+            final int N = in.nextInt();
+            final String[] words = new String[N];
 
             for (int i = 0; i < N; i++) {
                 words[i] = in.next();
@@ -62,9 +62,9 @@ public class P0173_HeadToTail {
     }
 
     private static void printIsOrderingPossible(final String[] words) {
-        int[][] startEndWordCount = new int[26][26];
+        final int[][] startEndWordCount = new int[26][26];
 
-        for (String word : words) {
+        for (final String word : words) {
             startEndWordCount[word.charAt(0) - 'a'][word.charAt(word.length() - 1) - 'a'] += 1;
         }
 

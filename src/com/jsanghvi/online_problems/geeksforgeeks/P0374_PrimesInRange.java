@@ -1,4 +1,4 @@
-// Generate all prime numbers between two given numbers.
+// Problem ID: 374. Generate all prime numbers between two given numbers.
 //
 // Input:
 //
