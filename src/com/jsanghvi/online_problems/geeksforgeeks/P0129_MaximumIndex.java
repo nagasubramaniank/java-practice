@@ -35,7 +35,7 @@ package com.jsanghvi.online_problems.geeksforgeeks;
 
 import java.util.Scanner;
 
-public class P129_MaximumIndex {
+public class P0129_MaximumIndex {
     public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();

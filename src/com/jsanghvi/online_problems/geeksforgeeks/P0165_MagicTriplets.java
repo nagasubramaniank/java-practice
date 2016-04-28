@@ -33,7 +33,7 @@ package com.jsanghvi.online_problems.geeksforgeeks;
 
 import java.util.Scanner;
 
-public class P165_MagicTriplets {
+public class P0165_MagicTriplets {
     public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();
