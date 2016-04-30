@@ -40,7 +40,7 @@
 // The order will be: big  geeks  smart
 
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

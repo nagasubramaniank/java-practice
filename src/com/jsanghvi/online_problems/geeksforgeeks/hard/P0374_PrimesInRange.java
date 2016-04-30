@@ -23,7 +23,7 @@
 // 2 3 5 7
 // 3 5
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 import java.util.TreeSet;

@@ -38,7 +38,7 @@
 // 4
 // 5
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.medium;
 
 import java.util.Scanner;
 

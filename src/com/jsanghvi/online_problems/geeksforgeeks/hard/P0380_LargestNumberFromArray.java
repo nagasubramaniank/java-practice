@@ -35,7 +35,7 @@
 // 9534330
 // 6054854654
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Arrays;
 import java.util.Comparator;

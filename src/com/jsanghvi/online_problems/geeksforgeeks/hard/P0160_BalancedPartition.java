@@ -32,7 +32,7 @@
 // Subset1 = {1, 5, 6}, sum of Subset1 = 12
 // Subset2 = {11}, sum of Subset2 = 11
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

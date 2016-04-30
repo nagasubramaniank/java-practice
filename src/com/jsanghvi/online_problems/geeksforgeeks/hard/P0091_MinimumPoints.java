@@ -47,7 +47,7 @@
 // Output:
 // 7
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

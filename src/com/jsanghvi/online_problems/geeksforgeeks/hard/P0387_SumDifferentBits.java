@@ -54,7 +54,7 @@
 // 1 + 0 + 2 +
 // 1 + 2 + 0 = 8
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

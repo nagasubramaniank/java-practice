@@ -33,7 +33,7 @@
 //
 // 4 4 5 5 6
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Arrays;
 import java.util.Scanner;

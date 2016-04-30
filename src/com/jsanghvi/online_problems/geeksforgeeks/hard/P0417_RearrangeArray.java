@@ -37,7 +37,7 @@
 // 3 4 2 0 1
 // 1 0 3 2
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

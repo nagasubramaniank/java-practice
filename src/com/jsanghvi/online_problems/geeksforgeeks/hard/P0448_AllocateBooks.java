@@ -42,7 +42,7 @@
 //
 // Therefore, the minimum of these cases is 113, which is selected as output.
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 

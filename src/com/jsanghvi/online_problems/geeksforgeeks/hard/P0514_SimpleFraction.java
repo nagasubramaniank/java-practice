@@ -37,7 +37,7 @@
 // 2
 // 2.(6)
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.HashMap;
 import java.util.Map;

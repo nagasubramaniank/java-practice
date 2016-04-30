@@ -43,7 +43,7 @@
 // Third element in output indicates maximum of minimums of all windows of size 3. Minimums of windows of size 3 are
 // {10}, {20}, {10}, {10} and {10}. Maximum of these minimums is 20.
 
-package com.jsanghvi.online_problems.geeksforgeeks;
+package com.jsanghvi.online_problems.geeksforgeeks.hard;
 
 import java.util.Scanner;
 
