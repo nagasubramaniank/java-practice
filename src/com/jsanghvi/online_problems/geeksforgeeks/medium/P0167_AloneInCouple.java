@@ -49,5 +49,11 @@ public class P0167_AloneInCouple {
 
     private static void printAloneMember(final int[] members) {
 
+        int aloneMember = 0;
+        for (int member : members) {
+            aloneMember ^= member;
+        }
+
+        System.out.println(aloneMember);
     }
 }

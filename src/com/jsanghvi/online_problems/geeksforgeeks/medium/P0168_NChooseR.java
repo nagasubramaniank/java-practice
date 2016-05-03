@@ -23,6 +23,7 @@
 
 package com.jsanghvi.online_problems.geeksforgeeks.medium;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class P0168_NChooseR {
@@ -35,7 +36,20 @@ public class P0168_NChooseR {
         }
     }
 
-    private static void printNChooseR(final int N, final int R) {
+    private static void printNChooseR(final int N, int R) {
 
+        if (R > N) {
+            System.out.println(0);
+            return;
+        }
+
+        R = Math.min(R, N - R);
+
+        BigInteger result = BigInteger.ONE;
+        for (int r = 0; r < R; r++) {
+            result = result.multiply(BigInteger.valueOf(N - r)).divide(BigInteger.valueOf(r + 1));
+        }
+
+        System.out.println(result.mod(BigInteger.valueOf(1000000007)));
     }
 }
