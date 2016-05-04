@@ -49,54 +49,46 @@ public class P0256_NextSmallestPalindrome {
     }
 
     private static void printNextSmallestPalindrome(final List<Integer> number) {
-        getSmallestPalindrome(number, true);
-
-        for (int digit : number) {
-            System.out.print(digit + " ");
-        }
-        System.out.println();
-    }
-
-    private static void getSmallestPalindrome(final List<Integer> number, final boolean findNext) {
         int size = number.size();
 
-        // Scan the number in both directions from mid point.
+        // Scan the number in both directions from middle point.
         int left, right;
         for (left = (size - 2) / 2, right = (size + 1) / 2; right < size && number.get(left).equals(number.get(right));
              left--, right++)
             ;
 
         // If we reached the end of number, or found a right digit greater than left digit.
-        if (findNext && (right == size || number.get(right) > number.get(left))) {
+        if (right == size || number.get(right) > number.get(left)) {
 
-            // Make right digit same as right digit, increment the number starting with position before right digit.
+            // Make right digit same as left digit, increment the middle digit and handle carries.
             if (right < size) {
                 number.set(right, number.get(left));
             }
 
-            int i;
-            for (i = right - 1; i >= 0 && number.get(i) == 9; i--) {
-                number.set(i, 0);
+            for (left = (size - 1) / 2; left >= 0 && number.get(left) == 9; left--) {
+                number.set(left, 0);
             }
 
-            // Check if need to increase the size of number.
-            if (i < 0) {
+            if (left < 0) {
                 number.add(0, 1);
                 size += 1;
             } else {
-                number.set(i, number.get(i) + 1);
+                number.set(left, number.get(left) + 1);
             }
 
-            // Convert the number to palindrome only if it has more than one digits.
-            if (size > 1) {
-                getSmallestPalindrome(number, false);
-                return;
-            }
+            // At this point, we are sure that the new number will be greater than the original, for whatever value we
+            // assign to the right-half.
         }
 
-        // Normal case. Set all right digits equal to left digits of number.
-        for (; right < size; right++, left--) {
+        // Just set all right digits equal to left digits of number.
+        for (left = (size - 2) / 2, right = (size + 1) / 2; right < size; right++, left--) {
             number.set(right, number.get(left));
         }
+
+        // Print the number.
+        for (int digit : number) {
+            System.out.print(digit + " ");
+        }
+        System.out.println();
     }
 }
