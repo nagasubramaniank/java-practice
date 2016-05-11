@@ -58,20 +58,29 @@ public class P0367_MinimumPlatforms {
         }
     }
 
+    // Following function does not pass geeksforgeeks test.
+
     private static void printMinimumPlatforms(final int[] arrivals, final int[] departures) {
         Map<Integer, Integer> platformDifferences = new TreeMap<>();
 
-        for (int arrival : arrivals) {
+        for (int i = 0; i < arrivals.length; i++) {
+            final int arrival = arrivals[i] % 2400;
+            final int departure = departures[i] % 2400;
+
             platformDifferences.put(arrival,
                     (platformDifferences.containsKey(arrival) ? platformDifferences.get(arrival) : 0) + 1);
-        }
-
-        for (int departure : departures) {
             platformDifferences.put(departure,
                     (platformDifferences.containsKey(departure) ? platformDifferences.get(departure) : 0) - 1);
+
+            if (arrival > departure) {
+                platformDifferences.put(0,
+                        (platformDifferences.containsKey(0) ? platformDifferences.get(0) : 0) + 1);
+                platformDifferences.put(2400,
+                        (platformDifferences.containsKey(2400) ? platformDifferences.get(2400) : 0) - 1);
+            }
         }
 
-        int platforms = 0, maximumPlatforms = Integer.MIN_VALUE;
+        int platforms = 0, maximumPlatforms = 0;
         for (int platformDifference : platformDifferences.values()) {
             platforms += platformDifference;
             maximumPlatforms = Math.max(maximumPlatforms, platforms);
