@@ -48,47 +48,42 @@ public class P0599_MaximumSumPath {
 
         for (int test = 0; test < T; test++) {
             final int M = in.nextInt(), N = in.nextInt();
-            final int[] A1 = new int[M], A2 = new int[N];
+            final int[] A1 = new int[M + 1], A2 = new int[N + 1];
 
             for (int i = 0; i < M; i++) {
                 A1[i] = in.nextInt();
             }
+            A1[M] = Integer.MAX_VALUE;
 
             for (int i = 0; i < N; i++) {
                 A2[i] = in.nextInt();
             }
+            A2[N] = Integer.MAX_VALUE;
 
             printMaximumSumPath(A1, A2);
         }
     }
 
-    private static void printMaximumSumPath(int[] array1, int[] array2) {
+    private static void printMaximumSumPath(final int[] array1, final int[] array2) {
 
-        if (array1.length > array2.length) {
-            final int[] temp = array1;
-            array1 = array2;
-            array2 = temp;
-        }
+        int sumPath1 = 0, sumPath2 = 0;
 
-        int sum1 = 0, sum2 = 0;
-        int maximumSum = 0;
-
-        for (int i = 0; i < array1.length; i++) {
-            if (array1[i] == array2[i]) {
-                maximumSum += Math.max(sum1, sum2) + array1[i];
-                sum1 = 0;
-                sum2 = 0;
+        for (int i1 = 0, i2 = 0; i1 < array1.length - 1 || i2 < array2.length - 1; ) {
+            if (array1[i1] < array2[i2]) {
+                sumPath1 += array1[i1++];
+            } else if (array2[i2] < array1[i1]) {
+                sumPath2 += array2[i2++];
             } else {
-                sum1 += array1[i];
-                sum2 += array2[i];
+                final int value = array1[i1];
+
+                int t1 = 0, t2 = 0;
+                for (; array1[i1] == value; i1++, t1++) ;
+                for (; array2[i2] == value; i2++, t2++) ;
+
+
+                sumPath1 = sumPath2 = Math.max(sumPath1, sumPath2) + value * (t1 + t2 - 1);
             }
         }
-
-        for (int i = array1.length; i < array2.length; i++) {
-            sum2 += array2[i];
-        }
-
-        maximumSum += Math.max(sum1, sum2);
-        System.out.println(maximumSum);
+        System.out.println(Math.max(sumPath1, sumPath2));
     }
 }

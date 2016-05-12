@@ -49,20 +49,21 @@ public class P0649_TotalRectangles {
     }
 
     private static void printTotalRectangles(final int area, final Set<Integer> primes) {
-        List<AbstractMap.SimpleEntry<Integer, Integer>> primeFactors = new ArrayList<>();
+        Map<Integer, Integer> primeFactors = new HashMap<>();
 
         int remainingArea = area;
         for (final int prime : primes) {
-            if (remainingArea % prime == 0) {
-                int factors = 1;
-                for (remainingArea /= prime; remainingArea % prime == 0; remainingArea /= prime) {
-                    factors += 1;
-                }
-                primeFactors.add(new AbstractMap.SimpleEntry<Integer, Integer>(prime, factors));
+            int factors = 0;
+            for (; remainingArea % prime == 0; remainingArea /= prime) {
+                factors += 1;
+            }
+
+            if (factors > 0) {
+                primeFactors.put(prime, factors);
             }
 
             if (remainingArea > 1 && prime * prime > remainingArea) {
-                primeFactors.add(new AbstractMap.SimpleEntry<Integer, Integer>(remainingArea, 1));
+                primeFactors.put(remainingArea, 1);
                 remainingArea = 1;
             }
 
@@ -72,23 +73,22 @@ public class P0649_TotalRectangles {
         }
 
         int totalRectangles = 1;
-        boolean isEven = false;
-        for (AbstractMap.SimpleEntry<Integer, Integer> primeFactor : primeFactors) {
-            if (primeFactor.getKey() == 2) {
-                isEven = true;
-                totalRectangles *= 2;
-            } else {
-                totalRectangles *= primeFactor.getValue() + 1;
+        for (Map.Entry<Integer, Integer> primeFactor : primeFactors.entrySet()) {
+            totalRectangles *= primeFactor.getValue() + 1;
+        }
+
+        // Check if area is an even (having factor 2) and square (having odd factors) number.
+        boolean isSquare = (totalRectangles % 2 != 0);
+
+        if (primeFactors.containsKey(2)) {
+            totalRectangles = totalRectangles * 2 / (primeFactors.get(2) + 1);
+
+            if (isSquare) {
+                totalRectangles += 1;
             }
         }
 
-        int halfRectangles = (totalRectangles + 1) / 2;
-        // totalRectangles will be odd if area is a square number.
-        if (isEven && totalRectangles % 2 != 0) {
-            halfRectangles += 1;
-        }
-
-        System.out.println(halfRectangles);
+        System.out.println((totalRectangles + 1) / 2);
     }
 
     // Computes and returns set of all prime numbers up to input limit using Sieve of Eratosthenes.
