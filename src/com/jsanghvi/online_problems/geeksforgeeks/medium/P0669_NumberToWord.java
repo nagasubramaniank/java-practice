@@ -33,10 +33,10 @@ package com.jsanghvi.online_problems.geeksforgeeks.medium;
 import java.util.Scanner;
 
 public class P0669_NumberToWord {
-    private static String[] unitsWord = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    private final static String[] unitsWord = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
             "nineteen"};
-    private static String[] tensWord = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
+    private final static String[] tensWord = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
             "ninety"};
 
     public static void main(final String[] args) {
